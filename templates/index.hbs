@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Records list</title>
+  <link rel="icon" type="image/svg" href="/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@saramorillon/minicss@2.7.0/dist/minicss.css" rel="stylesheet" />
+
+  <style>
+    body {
+      display: flex;
+    }
+
+    aside {
+      overflow: auto;
+      height: 100vh;
+      width: 25rem;
+    }
+
+    li {
+      display: flex;
+    }
+
+    li :first-child {
+      flex: 1;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    video {
+      width: 100%;
+    }
+
+    .lucide {
+      width: 1em;
+      height: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <aside>
+    <nav>
+      <ul>
+        <li>
+          <strong>Records</strong>
+          <button onclick="deleteRecords()">
+            <i data-lucide="trash"></i>
+          </button>
+        </li>
+        {{#each records}}
+        <li>
+          <button onclick="display('{{ href }}')">
+            {{name}} <small>{{ size }}</small>
+          </button>
+          <a href='{{ href }}'>
+            <i data-lucide="download"></i>
+          </a>
+          <button onclick="deleteRecord('{{ href }}')">
+            <i data-lucide="trash"></i>
+          </button>
+        </li>
+        {{/each}}
+      </ul>
+    </nav>
+  </aside>
+  <main>
+    <video controls>
+      <source src="" type="video/mp4" />
+    </video>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const video = document.querySelector('video')
+    const source = video.querySelector('source')
+
+    function display(href) {
+      video.src = href
+      video.load()
+    }
+
+    function deleteRecords() {
+      const xhr = new XMLHttpRequest()
+      xhr.open('delete', '/records')
+      xhr.onload = function () {
+        window.location.reload()
+      }
+      xhr.send()
+    }
+
+    function deleteRecord(href) {
+      const xhr = new XMLHttpRequest()
+      xhr.open('delete', href)
+      xhr.onload = function () {
+        window.location.reload()
+      }
+      xhr.send()
+    }
+
+  </script>
+</body>
+
+</html>
