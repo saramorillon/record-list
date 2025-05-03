@@ -18,6 +18,6 @@ const server = http.createServer((req: IncomingMessage, res: ServerResponse) => 
   router.listen(req, res)
 })
 
-mkdir(env.RECORDS_DIR)
+mkdir(env.RECORD_DIR)
   .catch(() => false)
   .finally(() => server.listen(3000, () => console.log('Listening')))

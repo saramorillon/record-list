@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { env } from '../env.js'
 
 export async function getRecord(req: IncomingMessage, res: ServerResponse) {
-  const tsPath = join(env.RECORDS_DIR, req.params.id)
+  const tsPath = join(env.RECORD_DIR, req.params.id)
 
   const exists = await stat(tsPath)
     .then(() => true)
