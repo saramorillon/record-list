@@ -1,6 +1,6 @@
 {
-  "name": "iptv-record",
-  "version": "2.3.0",
+  "name": "record-list",
+  "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "license": "MIT",
