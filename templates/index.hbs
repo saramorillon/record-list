@@ -15,7 +15,7 @@
     aside {
       overflow: auto;
       height: 100vh;
-      width: 25rem;
+      width: 20rem;
     }
 
     li {
@@ -51,10 +51,16 @@
             <i data-lucide="trash"></i>
           </button>
         </li>
+
+        {{#each days}}
+        <li>
+          <em>{{date}}</em>
+        </li>
+
         {{#each records}}
         <li>
-          <button onclick="display('{{ href }}')">
-            {{name}} <small>{{ size }}</small>
+          <button onclick="display(this, '{{ href }}')">
+            {{date}} <small>{{ size }}</small>
           </button>
           <a href='{{ href }}'>
             <i data-lucide="download"></i>
@@ -63,6 +69,8 @@
             <i data-lucide="trash"></i>
           </button>
         </li>
+        {{/each}}
+
         {{/each}}
       </ul>
     </nav>
@@ -80,7 +88,10 @@
     const video = document.querySelector('video')
     const source = video.querySelector('source')
 
-    function display(href) {
+    function display(button, href) {
+      const active = document.querySelector('[aria-current=page]')
+      if (active) active.removeAttribute('aria-current')
+      button.setAttribute('aria-current', "page")
       video.src = href
       video.load()
     }
