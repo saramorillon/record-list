@@ -79,6 +79,10 @@
     <video controls>
       <source src="" type="video/mp4" />
     </video>
+    <div role="group">
+      <button id="previous" onclick="previous()" disabled="disabled"><i data-lucide="chevron-left"></i></button><button
+        id="next" onclick="next()" disabled="disabled"><i data-lucide="chevron-right"></i></button>
+    </div>
   </main>
 
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -87,6 +91,32 @@
 
     const video = document.querySelector('video')
     const source = video.querySelector('source')
+    const prevButton = document.querySelector('#previous')
+    const nextButton = document.querySelector('#next')
+
+    function getPrevious(active) {
+      if (active) {
+        const previous = active.parentElement.previousElementSibling
+        if (previous) {
+          const button = previous.querySelector('button')
+          if (button) {
+            return button
+          }
+        }
+      }
+    }
+
+    function getNext(active) {
+      if (active) {
+        const next = active.parentElement.nextElementSibling
+        if (next) {
+          const button = next.querySelector('button')
+          if (button) {
+            return button
+          }
+        }
+      }
+    }
 
     function display(button, href) {
       const active = document.querySelector('[aria-current=page]')
@@ -94,6 +124,18 @@
       button.setAttribute('aria-current', "page")
       video.src = href
       video.load()
+
+      if (getPrevious(button)) {
+        prevButton.removeAttribute('disabled')
+      } else {
+        prevButton.setAttribute('disabled', "disabled")
+      }
+
+      if (getNext(button)) {
+        nextButton.removeAttribute('disabled')
+      } else {
+        nextButton.setAttribute('disabled', "disabled")
+      }
     }
 
     function deleteRecords() {
@@ -112,6 +154,22 @@
         window.location.reload()
       }
       xhr.send()
+    }
+
+    function previous() {
+      const active = document.querySelector('[aria-current=page]')
+      const previous = getPrevious(active)
+      if (previous) {
+        button.click()
+      }
+    }
+
+    function next() {
+      const active = document.querySelector('[aria-current=page]')
+      const next = getNext(active)
+      if (next) {
+        next.click()
+      }
     }
 
   </script>
