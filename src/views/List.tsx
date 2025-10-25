@@ -11,6 +11,9 @@ export function List({ free, tree }: IListProps) {
     <html lang="en">
       <head>
         <title>Records list</title>
+
+        <meta charset="UTF-8" />
+
         <link rel="icon" type="image/svg" href="/favicon.svg" />
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/@saramorillon/minicss@2.7.0/dist/minicss.css" rel="stylesheet" />
