@@ -16,6 +16,9 @@ RUN pnpm tsc
 
 RUN pnpm prune --prod
 RUN rm -rf pnpm-lock.yaml tsconfig.json src
-COPY templates templates
+COPY public public
+
+ENV PUBLIC_DIR=/app/public
+ENV RECORD_DIR=/app/out
 
 CMD ["node", "dist/index.js"]
