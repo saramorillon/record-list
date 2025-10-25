@@ -1,6 +1,6 @@
-import { Router } from '@saramorillon/http-router'
 import { mkdir } from 'node:fs/promises'
 import http, { type IncomingMessage, type ServerResponse } from 'node:http'
+import { Router, serveStatic } from '@saramorillon/http-router'
 import { deleteRecord } from './controllers/deleteRecord.js'
 import { deleteRecords } from './controllers/deleteRecords.js'
 import { getRecord } from './controllers/getRecord.js'
@@ -13,6 +13,7 @@ router.get('/records', listRecords)
 router.get('/record/:id', getRecord)
 router.delete('/record/:id', deleteRecord)
 router.delete('/records', deleteRecords)
+router.get('*', serveStatic(env.PUBLIC_DIR))
 
 const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
   router.listen(req, res)

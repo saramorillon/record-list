@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       '@saramorillon/http-router':
-        specifier: ^1.4.0
-        version: 1.4.0
-      handlebars:
-        specifier: ^4.7.8
-        version: 4.7.8
+        specifier: ^1.5.1
+        version: 1.5.1
+      nano-jsx:
+        specifier: ^0.2.0
+        version: 0.2.0
       pretty-bytes:
         specifier: ^6.1.1
         version: 6.1.1
@@ -242,8 +242,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@saramorillon/http-router@1.4.0':
-    resolution: {integrity: sha512-0vr6o6CwfzN7IAY04aPIa/MrZuiSZymnGhKSrVZWupLFk9YXUhWfmji7aq/Fly5332ZgrtRVqHwHQuNyqS9vew==}
+  '@saramorillon/http-router@1.5.1':
+    resolution: {integrity: sha512-9VcoLnIiCagMzqSgQMuVB978Pca/iER//zNXzoUlUSf4higWfEJ/Ig4DfgK+lJw4RKNsNsLcMcVGbhby1XRSeg==}
 
   '@types/node@20.17.32':
     resolution: {integrity: sha512-zeMXFn8zQ+UkjK4ws0RiOC9EWByyW1CcVmLe+2rQocXRsGEDxUCwPEIVgpsGcLHS/P8JkT0oa3839BRABS0oPw==}
@@ -265,16 +265,14 @@ packages:
   get-tsconfig@4.10.0:
     resolution: {integrity: sha512-kGzZ3LWWQcGIAmg6iWvXn0ei6WDtV26wzHRMwDSzmAbcXrTEXxHy6IehI6/4eT6VRKyMP1eF1VqwrVUmE/LR7A==}
 
-  handlebars@4.7.8:
-    resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
-    engines: {node: '>=0.4.7'}
+  mime@4.1.0:
+    resolution: {integrity: sha512-X5ju04+cAzsojXKes0B/S4tcYtFAJ6tTMuSPBEn9CPGlrWr8Fiw7qYeLT0XyH80HSoAoqWCaz+MWKh22P7G1cw==}
+    engines: {node: '>=16'}
     hasBin: true
 
-  minimist@1.2.8:
-    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
-
-  neo-async@2.6.2:
-    resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
+  nano-jsx@0.2.0:
+    resolution: {integrity: sha512-57C+a+jicobooJzBaYpEO19EKXhkmxCiZoZd964g69XLJ/bjJuU5PuWhURS0x6bu9p2ETmwPafam0tWw8zkUPw==}
+    engines: {node: '>=18'}
 
   pretty-bytes@6.1.1:
     resolution: {integrity: sha512-mQUvGU6aUFQ+rNvTIAcZuWGRT9a6f6Yrg9bHs4ImKF+HZCEK+plBvnAZYSIQztknZF2qnzNtr6F8s0+IuptdlQ==}
@@ -282,10 +280,6 @@ packages:
 
   resolve-pkg-maps@1.0.0:
     resolution: {integrity: sha512-seS2Tj26TBVOC2NIc2rOe2y2ZO7efxITtLZcGSOnHHNOQ7CkiUBfw0Iw2ck6xkIhPwLhKNLS8BO+hEpngQlqzw==}
-
-  source-map@0.6.1:
-    resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
-    engines: {node: '>=0.10.0'}
 
   tsx@4.19.4:
     resolution: {integrity: sha512-gK5GVzDkJK1SI1zwHf32Mqxf2tSJkNx+eYcNly5+nHvWqXUJYUkWBQtKauoESz3ymezAI++ZwT855x5p5eop+Q==}
@@ -297,16 +291,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  uglify-js@3.19.3:
-    resolution: {integrity: sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ==}
-    engines: {node: '>=0.8.0'}
-    hasBin: true
-
   undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-
-  wordwrap@1.0.0:
-    resolution: {integrity: sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==}
 
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
@@ -423,7 +409,9 @@ snapshots:
   '@esbuild/win32-x64@0.25.3':
     optional: true
 
-  '@saramorillon/http-router@1.4.0': {}
+  '@saramorillon/http-router@1.5.1':
+    dependencies:
+      mime: 4.1.0
 
   '@types/node@20.17.32':
     dependencies:
@@ -466,24 +454,13 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
-  handlebars@4.7.8:
-    dependencies:
-      minimist: 1.2.8
-      neo-async: 2.6.2
-      source-map: 0.6.1
-      wordwrap: 1.0.0
-    optionalDependencies:
-      uglify-js: 3.19.3
+  mime@4.1.0: {}
 
-  minimist@1.2.8: {}
-
-  neo-async@2.6.2: {}
+  nano-jsx@0.2.0: {}
 
   pretty-bytes@6.1.1: {}
 
   resolve-pkg-maps@1.0.0: {}
-
-  source-map@0.6.1: {}
 
   tsx@4.19.4:
     dependencies:
@@ -494,11 +471,6 @@ snapshots:
 
   typescript@5.8.3: {}
 
-  uglify-js@3.19.3:
-    optional: true
-
   undici-types@6.19.8: {}
-
-  wordwrap@1.0.0: {}
 
   zod@3.24.3: {}
