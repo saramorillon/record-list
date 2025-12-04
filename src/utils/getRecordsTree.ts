@@ -30,11 +30,18 @@ export async function getRecordsTree(timezone: string, locale: string) {
 
     const date = new Date(birthtimeMs)
 
+    const formatter = new Intl.DateTimeFormat(locale, {
+      timeZone: timezone,
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    })
+    const dateParts = Object.fromEntries(formatter.formatToParts(date).map((part) => [part.type, part.value]))
+    const todayParts = Object.fromEntries(formatter.formatToParts(today).map((part) => [part.type, part.value]))
+
     const collapsed =
-      date.getFullYear() !== today.getFullYear() ||
-      date.getMonth() !== today.getMonth() ||
-      date.getDate() !== today.getDate()
-    const parentId = `y${date.getFullYear()}m${date.getMonth()}d${date.getDate()}`
+      dateParts.year !== todayParts.year || dateParts.month !== todayParts.month || dateParts.day !== todayParts.day
+    const parentId = `y${dateParts.year}m${dateParts.month}d${dateParts.day}`
 
     tree[parentId] ??= {
       id: parentId,

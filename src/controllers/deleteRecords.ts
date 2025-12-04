@@ -3,7 +3,7 @@ import type { IncomingMessage, ServerResponse } from 'node:http'
 import { join } from 'node:path'
 import { env } from '../env.js'
 
-export async function deleteRecords(req: IncomingMessage, res: ServerResponse) {
+export async function deleteRecords(_: IncomingMessage, res: ServerResponse) {
   const files = await readdir(env.RECORD_DIR)
 
   for (const file of files) {

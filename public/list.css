@@ -1,38 +1,38 @@
 body {
-    display: flex;
+  display: flex;
 }
 
 aside {
-    overflow: auto;
-    height: 100vh;
-    width: 20rem;
+  overflow: auto;
+  height: 100vh;
+  width: 20rem;
 }
 
 li {
-    display: flex;
+  display: flex;
 }
 
 li :first-child {
-    flex: 1;
+  flex: 1;
 }
 
 li.collapsed {
-    display: none;
+  display: none;
 }
 
 button.collapsed svg {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 video {
-    width: 100%;
+  width: 100%;
 }
 
 .lucide {
-    width: 1em;
-    height: 1em;
+  width: 1em;
+  height: 1em;
 }
